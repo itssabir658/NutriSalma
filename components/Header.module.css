@@ -160,7 +160,9 @@
     gap: 14px;
   }
   .brandTagline {
-    display: none;
+    font-size: 8.5px;
+    letter-spacing: .1em;
+    white-space: nowrap;
   }
   .brandName {
     font-size: 19px;
@@ -171,6 +173,39 @@
   .cta {
     padding: 11px 16px;
     font-size: 13.5px;
+  }
+}
+
+/* Narrow phones: the brand lockup plus burger plus CTA no longer fit at
+   default sizes, so trim the chrome rather than drop the tagline. */
+@media (max-width: 400px) {
+  .bar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+    min-width: 0;
+  }
+  .mark {
+    width: 27px;
+    height: 27px;
+    font-size: 17px;
+  }
+  .brandName {
+    font-size: 17px;
+  }
+  .brandTagline {
+    font-size: 8px;
+    letter-spacing: .07em;
+  }
+  .burger {
+    width: 40px;
+    height: 40px;
+  }
+  .cta {
+    padding: 10px 13px;
+    font-size: 12.5px;
   }
 }
 
