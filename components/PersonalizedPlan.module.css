@@ -398,3 +398,63 @@
     grid-column: 1 / -1;
   }
 }
+
+/* --- Narrow phones --------------------------------------------------------
+   Declared last so these win over the base rules above (same specificity).
+
+   Same min-content blowout as the hero: the plan card could not shrink below
+   331px (74px thumbnail + the two action buttons on one line + nested
+   padding), which forced the single column wider than the viewport. */
+
+@media (max-width: 560px) {
+  .section {
+    padding: 64px 20px;
+  }
+
+  .aside,
+  .planCard {
+    min-width: 0;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .planCard {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .planTotals {
+    font-size: 22px;
+  }
+
+  .mealRow {
+    grid-template-columns: 56px 1fr;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .mealImg {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .mealName {
+    font-size: 15px;
+  }
+
+  /* Let the two actions stack instead of forcing the row wider. */
+  .mealActions {
+    flex-wrap: wrap;
+  }
+
+  .eatenBtn,
+  .eatenBtnDone,
+  .swapBtn {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+}

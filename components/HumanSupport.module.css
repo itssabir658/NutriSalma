@@ -305,3 +305,62 @@
   font-size: 13px;
   color: #E6DADE;
 }
+
+/* --- Narrow phones --------------------------------------------------------
+   Declared last so these win over the base rules above (same specificity).
+   Same min-content blowout as the hero and plan card. */
+
+@media (max-width: 560px) {
+  .section {
+    padding: 64px 20px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .userCard,
+  .dietitianCard {
+    min-width: 0;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .metrics {
+    gap: 8px;
+  }
+
+  .metric {
+    min-width: 0;
+    padding: 12px 10px;
+  }
+
+  .metricValue,
+  .metricValueWarn {
+    font-size: 22px;
+  }
+
+  .metricLabel {
+    font-size: 11px;
+  }
+
+  .row,
+  .progressBlock,
+  .stat {
+    padding: 13px 14px;
+  }
+
+  .statPair {
+    gap: 8px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .actionPrimary,
+  .actionGhost {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}

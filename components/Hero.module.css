@@ -476,3 +476,84 @@
 .notifIcon {
   font-size: 15px;
 }
+
+/* Copy column. Defined so Hero.jsx's styles.copy resolves (it was
+   referenced but never declared, so the element rendered class-less). */
+.copy {
+  min-width: 0;
+}
+
+/* --- Narrow phones --------------------------------------------------------
+   Declared last so these win over the base rules above (same specificity).
+
+   The hero used to force a horizontal scrollbar below ~360px: the single
+   `1fr` column takes an automatic minimum of min-content, and the dashboard
+   mockup's min-content was 312px (a rigid 118px progress ring + gaps +
+   nested padding) — wider than the 256px available at 320px. Letting the
+   grid items shrink is not enough on its own, so the mockup's internals are
+   scaled down to actually fit. */
+
+@media (max-width: 720px) {
+  .photo,
+  .copy,
+  .dashWrap {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    padding: 48px 20px 64px;
+    gap: 32px;
+  }
+
+  .dash {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .dashDate {
+    font-size: 22px;
+  }
+
+  .ringRow {
+    gap: 14px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .ringWrap {
+    width: 92px;
+    height: 92px;
+  }
+
+  /* The <svg> carries width/height attributes, so it needs an explicit
+     size to follow the smaller wrapper. */
+  .ringSvg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ringKcal {
+    font-size: 23px;
+  }
+
+  .mealImg {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+  }
+
+  .mealRow {
+    gap: 10px;
+    padding: 8px 10px 8px 8px;
+  }
+
+  .mealName {
+    font-size: 14px;
+  }
+
+  .mealKcal {
+    font-size: 12.5px;
+  }
+}
