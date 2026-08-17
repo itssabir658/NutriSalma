@@ -12,11 +12,6 @@
   align-items: start;
 }
 
-@media (max-width: 860px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 .photoCol {
   position: sticky;
@@ -133,4 +128,54 @@
 .instagram:hover {
   filter: brightness(1.08);
   color: #FFFFFF;
+}
+
+/* --- Mobile ---------------------------------------------------------------
+   Declared last so these win over the base rules above (same specificity). */
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Single column: sticky would detach the photo and let it scroll over the
+     bio copy, so it goes back in flow above the text. */
+  .photoCol {
+    position: static;
+    top: auto;
+  }
+
+  .section {
+    padding: 64px 24px;
+    min-height: 0;
+  }
+
+  .photo {
+    height: 420px;
+    object-position: 50% 12%;
+  }
+
+  .name {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 56px 20px;
+  }
+
+  .photo {
+    height: 360px;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+
+  .p,
+  .closing {
+    font-size: 16px;
+  }
 }
