@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import DietitianBio from "@/components/DietitianBio";
+import NutritionHub from "@/components/NutritionHub";
 import HowItWorks from "@/components/HowItWorks";
 import PersonalizedPlan from "@/components/PersonalizedPlan";
 import Automation from "@/components/Automation";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <Hero />
       <DietitianBio />
+      <NutritionHub />
       <HowItWorks />
       <PersonalizedPlan />
       <Automation />

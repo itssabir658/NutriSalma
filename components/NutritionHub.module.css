@@ -1,0 +1,518 @@
+/* Nutrition Knowledge Hub.
+   Deliberately inverted from the neighbouring sections — a white editorial
+   ground with warm-tinted cards — so it reads as its own chapter while still
+   using the site's tokens, type and motion. */
+
+.section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 420px;
+  background: radial-gradient(70% 100% at 15% 0%, #FDF1F4 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 104px 32px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.head {
+  max-width: 660px;
+}
+
+.kicker {
+  font-size: 11.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  margin: 16px 0 0;
+}
+
+.sub {
+  font-size: 17.5px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 16px 0 0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 36px;
+  padding: 6px;
+  background: var(--color-soft-fill);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.tab {
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .22s ease, color .22s ease;
+}
+
+.tab:hover {
+  color: var(--color-accent-dark);
+}
+
+.tabActive {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  box-shadow: 0 10px 22px -12px rgba(168, 70, 95, .8);
+}
+
+.tabActive:hover {
+  color: var(--color-bg);
+}
+
+.panel {
+  margin-top: 34px;
+  animation: ns-rise .35s cubic-bezier(.2,.7,.2,1) both;
+}
+
+/* Shared card rail: a grid on desktop, a swipeable rail on phones. */
+.rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Recommendation cards */
+.tip {
+  min-width: 0;
+  background: var(--color-soft-fill);
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  padding: 26px 24px;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.tip:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-highlight);
+  box-shadow: 0 26px 50px -34px rgba(26, 25, 23, .45);
+}
+
+.tipIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-accent);
+}
+
+.tipTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -.01em;
+  margin: 18px 0 8px;
+}
+
+.tipBody {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Myth / Fact flip cards */
+.myth {
+  min-width: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  perspective: 1200px;
+  font-family: inherit;
+}
+
+.mythInner {
+  display: grid;
+  min-height: 236px;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  transform-style: preserve-3d;
+}
+
+.mythFlipped .mythInner {
+  transform: rotateY(180deg);
+}
+
+.mythFront,
+.mythBack {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  padding: 26px 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mythFront {
+  background: var(--color-accent-dark);
+  color: #FDF3F6;
+  box-shadow: 0 26px 50px -34px rgba(126, 47, 69, .8);
+}
+
+.mythBack {
+  background: var(--color-soft-fill);
+  border: 1px solid var(--color-highlight);
+  color: var(--color-text);
+  transform: rotateY(180deg);
+}
+
+.mythTag,
+.factTag {
+  align-self: flex-start;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.mythTag {
+  background: rgba(233, 168, 188, .22);
+  color: var(--color-accent-tint);
+}
+
+.factTag {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.mythText,
+.factText {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-top: 16px;
+}
+
+.factText {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.mythHint,
+.mythHintBack {
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.mythHint {
+  color: var(--color-accent-tint);
+}
+
+.mythHintBack {
+  color: var(--color-accent);
+}
+
+/* Let's Talk */
+.talkHeading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -.01em;
+  margin: 0 0 22px;
+}
+
+.talk {
+  min-width: 0;
+  background: var(--color-soft-fill);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent-tint);
+  border-radius: 18px;
+  padding: 24px 22px;
+  transition: transform .24s ease, border-left-color .24s ease;
+}
+
+.talk:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--color-accent);
+}
+
+.talkTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.32;
+  letter-spacing: -.01em;
+  margin: 0 0 9px;
+}
+
+.talkBody {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topic {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  color: var(--color-muted);
+}
+
+/* Closing CTA */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 56px;
+  padding: 32px 34px;
+  background: var(--color-soft-fill);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+}
+
+.ctaCopy {
+  min-width: 0;
+  max-width: 560px;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+
+.ctaBody {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 10px 0 0;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: 999px;
+  padding: 15px 26px;
+  font-size: 15.5px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-btn);
+  transition: background .18s ease, transform .18s ease;
+}
+
+.ctaBtn:hover {
+  background: var(--color-accent-dark);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+
+/* --- Responsive -----------------------------------------------------------
+   Declared last so these win over the base rules above (same specificity). */
+
+@media (max-width: 980px) {
+  .rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .inner {
+    padding: 72px 20px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .sub {
+    font-size: 16px;
+  }
+
+  /* The row scrolls rather than squeezing the pills — "Recommendations" is
+     too long to fit a third of a phone screen without clipping. */
+  .tabs {
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 4px;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 11px 16px;
+    font-size: 13.5px;
+  }
+
+  /* Cards become a swipeable rail. Negative margins let them bleed to the
+     screen edge while keeping the section's padding for everything else. */
+  .rail {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
+    padding: 4px 20px 12px;
+    scrollbar-width: none;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tip,
+  .myth,
+  .talk {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+  }
+
+  .mythInner {
+    min-height: 250px;
+  }
+
+  .talkHeading {
+    font-size: 22px;
+  }
+
+  .cta {
+    margin-top: 40px;
+    padding: 26px 22px;
+    gap: 20px;
+  }
+
+  .ctaTitle {
+    font-size: 21px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Honour reduced-motion: keep the reveal, drop the 3D flip and travel. */
+@media (prefers-reduced-motion: reduce) {
+  .inner,
+  .tip,
+  .talk,
+  .ctaBtn,
+  .tab {
+    transition-duration: .01ms;
+  }
+
+  .panel {
+    animation: none;
+  }
+
+  .mythInner {
+    transition: none;
+    transform-style: flat;
+  }
+
+  .mythFlipped .mythInner {
+    transform: none;
+  }
+
+  .mythFront,
+  .mythBack {
+    backface-visibility: visible;
+    transition: opacity .15s linear;
+  }
+
+  .mythBack {
+    transform: none;
+    opacity: 0;
+  }
+
+  .mythFlipped .mythFront {
+    opacity: 0;
+  }
+
+  .mythFlipped .mythBack {
+    opacity: 1;
+  }
+
+  .tip:hover,
+  .talk:hover,
+  .ctaBtn:hover {
+    transform: none;
+  }
+}
