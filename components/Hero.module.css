@@ -1,0 +1,478 @@
+.section {
+  background: var(--color-hero-bg);
+  border-bottom: 1px solid var(--color-hero-border);
+  overflow: hidden;
+}
+
+.grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 32px 84px;
+  display: grid;
+  grid-template-columns: minmax(170px, .6fr) minmax(300px, 1fr) minmax(340px, 1.05fr);
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 1180px) {
+  .grid {
+    grid-template-columns: minmax(150px, .5fr) 1fr;
+    row-gap: 44px;
+  }
+  .dashWrap {
+    grid-column: 1 / -1;
+  }
+  .notif {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .photoImg {
+    height: 340px !important;
+  }
+}
+
+/* Founder photo */
+.photo {
+  margin: 0;
+  position: relative;
+}
+
+.photoImg {
+  width: 100%;
+  height: clamp(360px, 38vw, 520px);
+  object-fit: cover;
+  object-position: 50% 18%;
+  border-radius: 24px;
+  min-height: 340px;
+  display: block;
+  box-shadow: var(--shadow-photo);
+}
+
+.caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  background: rgba(253, 248, 249, .92);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 13px 16px;
+}
+
+.captionName {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.captionRole {
+  font-size: 12.5px;
+  color: var(--color-muted);
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+.waButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  transition: background .18s ease;
+}
+
+.waButton:hover {
+  background: #1EBE5A;
+  color: #FFFFFF;
+}
+
+/* Copy column */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--color-chip-bg);
+  border: 1px solid var(--color-chip-border);
+  color: var(--color-accent-dark);
+  border-radius: 999px;
+  padding: 7px 15px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--color-accent);
+  display: block;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(38px, 3.6vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+  margin: 22px 0 0;
+  text-wrap: pretty;
+}
+
+.headlineEm {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.lede {
+  font-size: 18.5px;
+  line-height: 1.62;
+  color: var(--color-muted);
+  max-width: 520px;
+  margin: 22px 0 0;
+  text-wrap: pretty;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 34px;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  text-decoration: none;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.primaryCta:hover {
+  background: var(--color-accent-dark);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 17px;
+}
+
+.secondaryCta {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  padding: 16px 26px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.secondaryCta:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 34px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trustCheck {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Dashboard mockup */
+.dashWrap {
+  position: relative;
+}
+
+.dashGlow {
+  position: absolute;
+  inset: -34px -22px -26px;
+  background: radial-gradient(60% 55% at 62% 32%, #FBEBEF 0%, rgba(253, 248, 249, 0) 72%);
+  pointer-events: none;
+}
+
+.dash {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: var(--shadow-dash);
+}
+
+.dashHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.dashKicker {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.dashDate {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 27px;
+  margin-top: 5px;
+}
+
+.dashUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-soft-fill);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.dashAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 99px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ringRow {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  background: var(--color-soft-fill);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.ringWrap {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  flex: none;
+}
+
+.ringSvg {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+.ringLabel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.ringKcal {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.ringGoal {
+  font-size: 10.5px;
+  color: var(--color-faint);
+  margin-top: 3px;
+}
+
+.bars {
+  display: grid;
+  gap: 11px;
+  flex: 1;
+}
+
+.barRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.barLabel {
+  color: var(--color-muted);
+}
+
+.barValue {
+  font-weight: 600;
+}
+
+.barTrack {
+  height: 7px;
+  background: var(--color-track);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+.mealsHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0 12px;
+}
+
+.mealsPlanned {
+  font-size: 12px;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.mealsList {
+  display: grid;
+  gap: 9px;
+}
+
+.mealRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 10px 14px 10px 10px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.mealRow:hover {
+  border-color: var(--color-highlight);
+  transform: translateX(2px);
+}
+
+.mealImg {
+  width: 74px;
+  height: 74px;
+  flex: none;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.mealInfo {
+  flex: 1;
+}
+
+.mealSlot {
+  font-size: 11px;
+  color: var(--color-faint);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.mealName {
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.mealKcal {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* Floating notifications */
+.notif {
+  position: absolute;
+  width: 250px;
+  pointer-events: none;
+}
+
+.notifA {
+  top: -40px;
+  left: -46px;
+}
+
+.notifB {
+  bottom: 96px;
+  right: -34px;
+  width: 238px;
+}
+
+.notifCard,
+.notifCardDark {
+  border-radius: 16px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 13.5px;
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1);
+  animation: ns-float 6s ease-in-out infinite;
+}
+
+.notifCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 40px -20px rgba(26, 25, 23, .35);
+}
+
+.notifCardDark {
+  background: var(--color-accent-dark);
+  color: #FDF3F6;
+  box-shadow: 0 20px 44px -18px rgba(126, 47, 69, .6);
+  animation-duration: 7.5s;
+}
+
+.notifVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notifHidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.notifIcon {
+  font-size: 15px;
+}

@@ -1,0 +1,307 @@
+.section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+
+.head {
+  max-width: 660px;
+}
+
+.kicker {
+  font-size: 11.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  margin: 16px 0 0;
+}
+
+.sub {
+  font-size: 17.5px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 16px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 48px;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.userCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.dietitianCard {
+  background: var(--color-ink);
+  color: var(--color-ink-text);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 24px 56px -40px rgba(26, 25, 23, .5);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.cardTopLabel {
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.cardTopLabelDark {
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.userBadge {
+  background: #FBE4EA;
+  color: var(--color-accent-dark);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.dietitianBadge {
+  background: rgba(233, 168, 188, .18);
+  color: var(--color-accent-tint);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.userBody {
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  background: var(--color-soft-fill);
+  border-radius: 16px;
+  padding: 15px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14.5px;
+}
+
+.rowLabel {
+  font-size: 14.5px;
+}
+
+.rowValue {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.newBadge {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.progressBlock {
+  background: var(--color-soft-fill);
+  border-radius: 16px;
+  padding: 15px 17px;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin-bottom: 9px;
+}
+
+.progressValue {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.progressTrack {
+  height: 7px;
+  background: var(--color-track);
+  border-radius: 99px;
+}
+
+.progressFill {
+  height: 100%;
+  width: 68%;
+  background: var(--color-accent);
+  border-radius: 99px;
+}
+
+.statPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat {
+  background: var(--color-soft-fill);
+  border-radius: 16px;
+  padding: 15px 17px;
+}
+
+.statLabel {
+  font-size: 12.5px;
+  color: var(--color-muted);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 23px;
+  margin-top: 3px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.metric {
+  background: var(--color-ink-surface);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.metricValueWarn {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--color-warn);
+}
+
+.metricLabel {
+  font-size: 12px;
+  color: var(--color-ink-muted);
+  margin-top: 2px;
+}
+
+.profile {
+  background: var(--color-ink-surface);
+  border-radius: 16px;
+  padding: 16px 17px;
+}
+
+.profileKicker {
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.profileTop {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 12px 0 14px;
+}
+
+.profileAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 99px;
+  background: var(--color-accent);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink-text);
+  flex: none;
+}
+
+.profileName {
+  font-size: 15px;
+}
+
+.profileMeta {
+  font-size: 12px;
+  color: var(--color-ink-muted);
+}
+
+.profileStats {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.profileStatRow {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-ink-text);
+}
+
+.profileStatRow span:first-child {
+  color: var(--color-ink-muted);
+}
+
+.pending {
+  color: var(--color-warn);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.actionPrimary {
+  background: var(--color-accent-tint);
+  color: #2E1620;
+  border-radius: 999px;
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.actionGhost {
+  border: 1px solid var(--color-ink-border);
+  border-radius: 999px;
+  padding: 8px 15px;
+  font-size: 13px;
+  color: #E6DADE;
+}
